@@ -1,0 +1,65 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = np.random.normal(10.0,3,500)
+
+sns.displot(data, kde=True, bins=10, color='black')
+
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.title("Normal Distribution Histogram")
+
+# Display the plot
+plt.show()
+
+//////////////////////////////////
+
+N = 400
+mu_1, sigma_1 = 80, 10
+mu_2, sigma_2 = 20, 10
+
+X_1 = np.random.normal(mu_1, sigma_1, N)
+X_2 = np.random.normal(mu_2, sigma_2, N)
+
+X = np.concatenate([X_1, X_2])
+
+sns.displot(X, bins=10, kde=True, color='green')
+
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.title("Bi-model Histogram")
+
+plt.show()
+
+//////////////////////////////////////
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+rdata = [0] * 19 + [1] * 49 + [2] * 60 + [3] * 47 + [4] * 32 + [5] * 18 + [6] * 3 + [7] * 3 + [8]
+sns.displot(rdata, bins=8, kde=True, alpha=0.6, color='blue')
+
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.title("Right-skewed Histogram")
+plt.show()
+
+///////////////////////////////////////
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Define data for a left-skewed histogram
+Idata = [0] * 19 + [-1] * 49 + [-2] * 60 + [-3] * 47 + [-4] * 32 + [-5] * 18 + [-6] * 3 + [-7] * 3 + [-8]
+
+# Plot the histogram with KDE
+sns.displot(Idata, kde=True, bins=8, alpha=0.6, color='red')
+
+# Labeling the plot
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.title("Left-skewed Histogram")
+
+# Display the plot
+plt.show()
