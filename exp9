@@ -1,0 +1,21 @@
+file -> Preprocess -> Python Script -> Box Plot
+
+
+from sklearn.cluster import AgglomerativeClustering
+import matplotlib.pyplot as plt
+import scipy.cluster.hierarchy as sch
+
+data = in_data.X 
+plt.figure(figsize=(10, 7))
+
+dendrogram = sch.dendrogram(sch.linkage(data, method='ward'))
+plt.show()
+
+
+
+hc = AgglomerativeClustering(n_clusters=5, affinity='euclidean', linkage='ward')
+cluster_labels = hc.fit_predict(data)
+
+# Copy data and assign cluster labels
+out_data = in_data.copy()
+out_data.Y = cluster_labels  # Assuming 'Y' is a new column for cluster labels
