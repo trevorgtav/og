@@ -1,0 +1,14 @@
+dataset -> Preprocess -> Python Script -> Distributions
+
+///////////////////////////////////////////////////////////////////
+
+dataset -> Preprocess -> DBSCAN -> Box Plot
+
+
+
+import pandas as pd
+df = pd.DataFrame(in_data.X,columns=[var.name for var in in_data.domain.attributes])
+basket=df.applymap(lambda x: True if x>0 else False)
+frequent_itemsets=basket.sum().sort_values(ascending=False)
+print(frequent_itemsets)
+out_data=in_data
